@@ -1,0 +1,12 @@
+[Unit]
+Description= Mailing Bot
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/home/ubuntu/Mailing_bot/venv/bin/python /home/ubuntu/Mailing_bot/O_bot.py
+WorkingDirectory=/home/ubuntu/Mailing_bot
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
