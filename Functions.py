@@ -1,4 +1,5 @@
 import sqlite3
+import gspread
 
 # Function to entry new row in table.
 def add_entry(shop, contact):
@@ -26,4 +27,11 @@ def get_data():
     finally:
         cursor.close()
         conn.close()
+
+# Function for recording in google sheet.
+def append_record(row):
+    db = gspread.service_account(filename='key.json')
+    sh = db.open("Offers")
+    table = sh.worksheet('sent')
+    table.append_row(row)
 

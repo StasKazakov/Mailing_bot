@@ -41,6 +41,8 @@ async def my_handler(client, message):
             if user_id is not None:
                 await app.send_message(user_id, ads_text)
                 add_entry(shop, contact)
+                record = [shop, contact]
+                append_record(record)
                 await app.send_message(admin, 'Message sent sucsessful!')
             else:
                 await app.send_message(admin, 'Bad number')
@@ -51,6 +53,8 @@ async def my_handler(client, message):
             user_name = contact[1:]
             await app.send_message(user_name, ads_text)
             add_entry(shop, contact)
+            record = [shop, contact]
+            append_record(record)
             await app.send_message(admin, 'Message sent sucsessful!')
         elif message.text == 'stat':
             executed = get_data()
